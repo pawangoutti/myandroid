@@ -1,0 +1,2141 @@
+
+		1.LinearLayout
+		2.RelativeLayout
+		3.TableLayout
+		4.FrameLayout
+
+	// Latest ViewGroups/ Route Tags
+		5.ConstraintLayout
+		6.CoordiateLayout
+
+	In android terminology we can the route tag as ViewGroup
+
+	1. LinearLayout
+		It is one of the ViewGroup which can be used to arrange the 
+		UI components one after another either vertically or horizontally
+	
+		Syn:
+			<LinearLayout
+				android:layout_height=""
+				android:layout_width=""
+				android:orientation="">
+
+				---------------------------
+				-------UI Components----
+				-----------------------
+
+			</LinearLayout>
+
+	Note:
+			For each and every UI component it can be ViewGroup or it can any other
+			UI component like Button TextView etc etc, every componet
+			should contain 2 Properties as mandatory
+			1 width
+			2 height
+
+	we can define the width and height using following properties
+
+		android:layout_width=""
+		android:layout_height=""
+
+	We can define the height and width values using following options
+	
+			1. match_parent
+			2. wrap_content
+			3. fill_parent
+			4. px -  50px
+			5. dp - 50dp
+
+	1. match_parent
+		match_parent will be used to define the height or width of any 
+		ui componet to match with its parent heigt or width
+		
+		syn:
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+
+		Note:	for activity xml file i.e screen the ViewGroup height and width
+		should be match_parent
+		
+	2.wrap_content
+		is a property or value which can used to define width and height for a UI componet
+		how much that component requires
+
+		if we use this property for height and width the components
+		height and will be adjusted according to the content
+	
+	Syn:
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+		
+	3. fill_parent
+			fill_parent will be used to define the height or width of any 
+		ui componet to fill to its parent heigt or width
+		
+		syn:
+			android:layout_height="fill_parent"
+			android:layout_width="fill_parent"
+	Note:
+			the fill_parent also do the same thing which match_parent can do
+		but the fill_parent should be used only  when we are developing 
+		an app for lower versions of android like 3.0 and below
+
+	4.px
+		in android if we wants to define a fixed height and width for a UI 
+		component we can use px, 
+		But it is not preferable to use the px for android, Because we 
+		have different devices with different screen resolutions so it make some UI
+		mismatches.
+		so we can go with dp only.
+
+		Syn:
+			android:layout_height="50px"
+			android:layout_width="150px"
+	5.dp
+		Density Pixel, this is unit or measurement which should be used to define 
+		the fixed height and width for any UI component
+		
+		Syn:
+			android:layout_height="50dp"
+			android:layout_width="50dp"
+
+	6. sp
+		sp stands for Scaling Pixel which can be used to define the font size 
+	in android
+		If we define the font size or text size using sp, it will get effected by the 
+		system font size settings
+		
+		If we wants to give fixed size ie it should not effected by system settings
+		we can use dp
+
+		Syn:
+			android:textSize="15sp"
+			
+			
+			
+			
+			
+			
+			
+			
+		Android Application Components:
+			1. Activity
+			2.Service
+			3.BroadcastReceiver
+			4.ContentProvider
+				
+		
+		Activity:
+			Activity is a sinle scrceen in android app with some UI components
+			where a user can communicate with the app
+
+			- it contains 2 files
+			1. Java file - coding 
+			2. .xml - design file
+		
+		Syn: create a class with subtype of Activity
+			
+					class MyActivity extends Activity
+					{
+					
+					}
+	Service:
+			Serivce is the one of the App component which can be used to
+		perform some long running background process/tasks without 
+		any user interaction
+
+	Ex:	Music player app- will play songs in background
+		Wifi will search for the available networks
+
+		Syn:
+			class MyService extends Service
+			{
+			
+			}
+	
+	BroadCastReceiver
+		It is one of the Android app component which can used to capture
+		the system events/announcements
+			ex:	Capturing the Usb/power connected event
+				Headset plugin event
+			Ex apps:
+				Battery Saver- which will open a screen when we connect usb
+				Music Player- which will play song when we connect headset
+
+				Syn:
+					class MyReceiver extends BroadcastReceiver
+					{
+					
+					}
+
+	ContetnProvider:
+		
+		ContentProvider is one of the android app component which can be used 
+	to provide the communication between the apps
+	Ex:
+		Whatsapp able read the contacts of contact application
+		Trucaller app able to read the call of dialer application
+	we will have 2 classes
+	1. ContentProvider 
+		which can used to allow your data to readable by other apps
+	2 ContentResolver
+		which can be used to read the data of other apps
+		
+		
+		
+		
+		Activity Life Cycle
+		1. onCreate()
+		2.onStart()
+		3.onResume()
+		4.onPause()
+		5.onStop()
+		6.onRestart()
+		7.onDestroy()
+	These are the methods which will be executed during the Activity
+	state changes 
+		
+	We have 4 states
+	1. Doesnt exist
+	2.forground
+	3.background
+	4.destroy
+
+	1.	onCreate()
+		is the first method which will execute when we open/start the Activity
+		its just like main method in Java
+		within this method we can do initializaions like
+		providing the link between xml and java
+		getting the UI components into java
+		Object initializations
+
+	2. onStart()
+		This is the method  will be executed when the activity 
+		is about to visible
+		within this method we can write the logic to fetch the data from server
+	3.onResume()
+		is a method which will execute when the activity is available for
+		the user to communicate
+	4.onPause()
+		is  a method which will be executed when the activity is going to background
+	5.onStop()
+		this method will execute when the activity is moved to background
+		state
+	6. onRestart()
+		this method will execute when the activity is coming back from the 
+		background to foreground
+	7. onDestroy()
+		this will be executed when the activity is destroyed state
+		i,e Activity is no more available
+
+
+
+
+Intent :
+			Intent is a component which is used to provide the communication
+	between	
+			Activity-Activity
+			Activity-Service
+			Activity-BroadcastReceiver
+	It can be used to start any of the above components from the Activity
+	In terms of Activity-Activity 
+	there are 2 different types of intents
+
+	 nt
+
+	1.Explicit Intent:
+			If the intent which is used to call the user defined Activity
+			(The Activity/Screen which we have created) is known as Explicit  Intent
+	Steps
+
+	Step1:
+		Create an object for Intent as follows
+		Syn
+			Intent intent=new  Intent();
+
+	Step2:
+		set the componentname to the intent using setComponentName() method
+	
+		Syn:
+			intent.setComponent(new ComponentName(this,YourStartingActivity.class));
+	Step3:
+		use the method startActivity() to start the Activity
+		Syn:
+			startActivity(intent);
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	Implicit Intent:
+		is the Intent is used to call the built in Activity or System Activity 
+	then it can be called as Implicit Intent
+	
+	Steps:
+		Step1:
+			Create an object for Intent as follows
+		Syn:
+			Intent intentObj=new Intent();
+	Step2:
+		set the Action to the Intent using a method setAction
+
+		Syn:
+			intentObj.setAction(Intent.ACTION_DIAL);
+	Step3:
+		start the Activity by using startActivity() method
+	Syn:
+		startActivity(intentObj);
+
+
+
+
+code to open camera:-
+
+				  public void camera(View view) {
+        Intent i = new Intent("android.media.action.IMAGE_CAPTURE");
+        startActivity(i);
+
+    }
+		give camera permission.
+
+
+
+
+
+
+
+
+Code to open any application:-
+
+
+	public void music(View view) {
+
+        Intent i;
+        PackageManager manager = getPackageManager();
+        try {
+            i = manager.getLaunchIntentForPackage("com.cyanogenmod.eleven");
+            if (i == null)
+                throw new PackageManager.NameNotFoundException();
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            startActivity(i);
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+Implicit Intent Data sending:
+		Step1:
+			create an object for Intent
+		Ex:
+			Intent intent=new Intent()
+		Step2:
+			set the action to Intent Obj to define which built in activity you are going
+		to open using setAction() method
+			
+		Ex:
+			intent.setAction(Intent.ACTION_DIAL);
+		
+		Step3:
+			set the data to Intent object using setData() method 
+		for this method we have to pass the Uri Object 
+
+		Ex:
+			intent.setData(Uri.parse("tel:1234567890"));
+		
+		Step4:
+			start the Activity using startActivity method
+		Ex:
+			startActivity(intent);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Data to other applications:
+			Using intent we can also open other applications
+		steps :
+		
+		step1:
+				Create an object for Intent
+			Ex:
+				Intent intent=new Intent();
+		Step2:
+				set the package name of application which you wants open
+			using setPackage() method
+		Ex:
+			intent.setPackage("com.whatsapp");  // use package name viewer apk 
+		Step3:
+			put the data in intent Obj using putExtra()
+			
+		Ex:
+			intent.putExtra(Intent.EXTRA_TEXT,"Value what you want to send");
+		
+		Step4:
+			define the action send using setAction method
+			Ex:
+				intent.setAction(Intent.ACTION_SEND);
+		Step5:
+			define the which type of data you are going to send using setType() method
+		Ex:
+			intent.setType("text/plain");
+		Step6:
+			start the activity using startActivity() 
+		Ex:
+			startActivity(intent);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To Send Data From one activity to another activity:--
+
+
+
+	Step 1:-
+		Create obj for intent:-
+
+		Eg-   Intent intent = new Intent();
+
+
+	Step 2:--
+		put the data into the intent object using putExtra() method
+		fot putExtra() method we have to pass 2 param 
+		1. Key 
+		2. Value
+		Ex:
+			intent.putExtra("key","The Value");
+			intent.putExtra("name","John");
+
+	Step 3:--
+		set the component to the using setComponent()
+		Ex:
+			intent.setComponent(new ComponentName(this,StartingActivity.class));
+
+
+	Step 4:--
+
+		start the Activity using startActivity() method
+		Ex:
+			startActivity(intent);
+
+	
+	Step 5:-- In Target Class Get the intent
+		  Eg- Intent iin= getIntent();
+
+
+	Step 6:-- Use getExtra & assign to the Bundel
+		Eg- Bundel b= inn.getExtras();
+
+
+	Step 7:-- Get value from key & Assign to textbox
+		Eg-	if(b!=null)
+        		{
+           		 	String j =(String) b.get("name");
+           		 	t.setText(j);
+       			 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	UI componets:
+
+		CheckBox:
+			CheckBox is Ui component which can used to allow a user to
+		choose some options 
+
+	Steps to work with the CheckBox
+
+	Step1:
+		Create CheckBox UI component in layout xml file as follows
+	Ex:
+		<CheckBox
+			andrdroid:layout_width=""
+			android:layout_height=""
+			android:text"Enable Wifi"
+			android:id="@+id/chkBox">
+	
+	Step2:
+		get the CheckBox into java as follows
+	Ex:
+		CheckBox chkBox=(CheckBox)findViewById(R.id.chkBox);
+
+	
+	Step3:
+		set the listener to the check box using a method setOnCheckedChangedListener()
+
+	Ex:	 CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Toast.makeText(getApplicationContext(),"Button is checked",Toast.LENGTH_LONG).show();
+            }
+            
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For Multipal Checkbox:-
+
+  public void order(View view) {
+
+        int total=0;
+        StringBuilder result= new StringBuilder();
+        if(c1.isChecked()){
+
+            result.append("Pizza");
+            total+=100;
+        }
+
+        if (c2.isChecked()){
+            result.append("Burger");
+            total+=150;
+        }
+        if (c3.isChecked()){
+            result.append("Biryani");
+            total+=300;
+        }
+        Toast.makeText(getApplicationContext(),"Your Total Bill= "+ total,Toast.LENGTH_LONG).show();
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch:
+			Switch is a UI component in android which will be having 2 states
+		on and off
+	Steps:
+		Step1:
+			create a Switch UI component layout xml file 
+		Ex:
+			<Switch
+				android:layout_height=""
+				android:layout_width=""
+				android:id="@+id/switchBtn"></Switch>
+		Step2:
+			Get the UI component into java and configure the Listener
+			Ex:
+			Switch switchBtn=(Switch)findViewById(R.id.swicthBtn);
+		
+			switchBtn.setOnCheckedChangedListener(new OnCheckedChanged.......)
+
+
+
+
+
+
+
+ switchWifi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
+                if(isChecked){
+                    Toast.makeText(getApplicationContext(),"Button is On",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"Button if OFF",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ToggleButton:
+		Toggle button also same as Switch but will be having diff UI 
+		Steps:
+		
+		Step1:
+			Create ToggleButton UI component in layout xml file
+			Ex:
+				<ToggleButton
+					android:layout_height=""
+					android:layout_width=""
+					android:textOn="Wifi is ON"
+					android:textOff="Wifi is Off"
+					android:id="@+id/togleWifi"></ToggleButton>
+		Step2:
+			Get the UI component into Java and configure the listener
+		Ex:
+			ToggleButton togleWifi=(ToggleButton)findViewById(R.id.togleWifi);
+		
+		togleWifi.setOncheckedChangedListener(new OnCheckedChanged......)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getApplicationContext(),"Toggel Button Is On",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Toggel button if Off",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               Spinner:
+		Spinner is UI component which is used to provide the selection option
+		to the user from list of items.
+		Ex:
+			selecting a country
+
+	         Steps to work with Spinner:
+		
+		Step1:
+			Create the UI component Spinner in layout xml file as follows
+		Ex:
+			<Spinner 
+				andriod:id="@+id/spinCountry"
+				android:layout_height=""
+				android:layout_width=""></Spinner>
+		Step2:
+			If we wants show the items in a Spinner we can pass
+			the list of items in two ways
+			1. through Xml
+			2.Trough Java
+		1. Through xml:
+			in order the items to Spinner through xml 
+		first we have to create a String Array value within strings.xml file
+		as  follows
+
+			Ex:
+			<string-array name="countryArray">
+				<item>India</item>
+				<item>USA</item>
+			</string-array>
+
+		Set the string-array to the spinner in layout using a property 
+		called android:entries="" as follows
+	Ex:
+		android:entries="@array/countryArray"
+	
+
+
+
+
+
+
+
+	2. Through java :
+			
+			In order to pass the item to the Spinner UI component through
+	Java we have to create String Array or ArrayList object
+		
+		Ex:
+			Strin[] states={"Ap","TS","MP","MH"};
+		then 
+			we have to create an object for ArrayAdapter
+		Ex:
+		ArrayAdapter<String> myAdapter=
+			new ArrayAdapter(getApplicationContext(),android.R.layout.xmlname,states);
+		then
+			set the adapter the Spinner UI component using a method 
+		setAdapter();
+			Ex:
+				spinerObj.setAdapter(adapter);
+			
+	Listener for Spinner:
+		We will be having a listener called OnItemSelectedListener for
+	Spinner
+		Ex;
+			spinObj.setOnItemSelectedListener(new OnItemSelectedListen......);
+			
+			we will get 2 methods 
+			1.onItemSelected
+			2.nnNothingSelected
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AutoCompleteTextView:
+		As we drawback like we can use the spinnner if there are huge items
+	we can a UI component Called AutoCompleteTextView which will provide
+	search option.
+	
+	Steps to work with ACTV
+
+Step1:
+	Create a AutoCompleteTextView UI component in layout xml file
+	Ex:
+		<AutoCompleteTextView
+			android:layot_height=""
+			android:layout_width=""
+			android:id="@+id/actv"
+			android:completionThreshold="1"></AutoCompleteTextView>
+	Note:
+		completionThreshold value will be used to define 
+	after entering how many letters we need the popup
+Step2:
+	Get the UI component into Java 
+Ex:
+	AutoCompleteTextView actv=(AutoCompleteTextView)findVieById(R.id.actv);
+
+Step3:
+	Create a String Array or ArrayList 
+Ex:
+	Strin[] items={"Apple","Android","Cloud","BlackBerry"};
+Step4:
+	CReate an object for ArrayAdapter
+Ex:
+ArrayAdapter<String>actvAdater=new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_1,items);
+	
+Step5:
+	set the adapter to actv obj
+Ex:
+	actv.setAdapter(actvAdater);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class MainActivity extends AppCompatActivity {
+
+    Spinner spinCountry,spinState;
+    AutoCompleteTextView actv;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        spinCountry=(Spinner)findViewById(R.id.spinCountry);
+        spinState=(Spinner)findViewById(R.id.spinState);
+        actv=(AutoCompleteTextView)findViewById(R.id.actv);
+
+
+
+        spinCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                String selectedItem=spinCountry.getSelectedItem().toString();
+                if(selectedItem.equalsIgnoreCase("India"))
+                {
+                    String[] indiaState={"Mp","Up","TS","Ap","Jk"};
+                    ArrayAdapter<String> indAdapter=new ArrayAdapter<String>(getApplicationContext(),
+                            android.R.layout.simple_list_item_1,indiaState);
+                    spinState.setAdapter(indAdapter);
+                }
+
+                if(selectedItem.equalsIgnoreCase("USA"))
+                {
+                    String[] usStates={"California","Newyork","South Corolina"};
+                    ArrayAdapter<String>usAdater=new ArrayAdapter<String>(getApplicationContext(),
+                            android.R.layout.simple_list_item_1,usStates);
+                    spinState.setAdapter(usAdater);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        String[] items={"California","Newyork","South Corolina","Hyderabad","Delhi","Apple","Apply"};
+        ArrayAdapter<String>actvAdater=new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_1,items);
+        actv.setAdapter(actvAdater);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GridView:
+		GridView is a UI component which will be used to
+		show the list of items in a grid format
+	Note:
+		steps will be same as ListView steps
+		only we need to add one property in layout xml
+	i.e 
+		android:numColumns="2"
+		to define the number columns required
+	
+		Ex:
+			<GridView
+			android:numColumns="3"
+			android:id="@+id/lView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			</GridView>
+
+
+
+
+
+
+
+
+
+
+
+public class MainActivity extends AppCompatActivity {
+
+    GridView lView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        lView=(GridView)findViewById(R.id.lView);
+
+        AlertDialog.Builder ad=new AlertDialog.Builder(this);
+
+        
+
+        ArrayList<String> countriesList=new ArrayList<>();
+        countriesList.add("India");
+        countriesList.add("USA");
+        countriesList.add("UK");
+        countriesList.add("Canada");
+        countriesList.add("Russia");
+        countriesList.add("Australia");
+        countriesList.add("WestIndies");
+        countriesList.add("USA");
+        countriesList.add("UK");
+        countriesList.add("Canada");
+        countriesList.add("Russia");
+        countriesList.add("Australia");
+        countriesList.add("WestIndies");
+        countriesList.add("USA");
+        countriesList.add("UK");
+        countriesList.add("Canada");
+        countriesList.add("Russia");
+        countriesList.add("Australia");
+        countriesList.add("WestIndies");
+
+        ArrayAdapter<String> myAdapter=new ArrayAdapter<String>
+                (this,android.R.layout.simple_list_item_1,countriesList);
+
+        lView.setAdapter(myAdapter);
+
+        lView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+               String item= lView.getItemAtPosition(i).toString();
+                Toast.makeText(MainActivity.this, item, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content_Provider:-
+To access Phone Contacts:-
+
+Step 1:-
+	Create xml file & add List view
+
+	<ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv1"></ListView>
+
+
+
+
+Step 2:-
+
+	Create another xml file contacts_item
+	
+ <TextView
+        android:id="@+id/txtName"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:text="Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txtNumber"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:text="Number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+Step 3:-
+
+Get the UI Components in Java File
+ 	t1 = findViewById(R.id.tv1);
+        t2 = findViewById(R.id.tv2);
+        lv = findViewById(R.id.lv1);
+
+
+
+Step 4:-
+	Create the object for Content Resolver
+
+	SYN:-	 ContentResolver resolver = getContentResolver();
+
+
+Step 5:-
+
+	Make The Cursor Object & Fire The Query
+	
+	SYN- 	Cursor c = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null); 
+
+Step 6:-
+
+	Make From & To String 
+ 
+	SYN-	String[] from = new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER};
+		
+ 		int[] to = new int[]{R.id.tv1, R.id.tv2};	
+
+
+Step 7:- 
+	Create Cursor Adapter Object & Pass the Layout file, cursor obj, from ,to
+	
+	SYN-  SimpleCursorAdapter adapter1 = new SimpleCursorAdapter(this, R.layout.indiview, c, from, to);
+
+
+Step 8:-
+	Set the  Adapter to ListView
+
+	SYN- lv.setAdapter(adapter1);
+	
+
+
+Step 9:- Give the permissions to Read The Contacts in manifiest.xml file
+	
+	SYN-  <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BroadcastReceiver:
+		BroadcastReceiver is one of the Android application component
+	which is used to provide the System announcements like
+	Usb connected event 
+	Headset Plug event
+	Screen on and off event
+
+	
+Step1:
+		Create a class with subtype of BroadcastReceiver 
+		and override onReceive() method 
+
+
+		public class MyReciver extends BroadcastReceiver {
+   		 @Override
+
+   		 public void onReceive(Context context, Intent intent) {
+
+
+
+   			 }
+		}
+
+
+
+Step 2:- 
+		Within your main activity Create an object IntentFilter to define 
+		or to add which events/actions you wants to capture
+
+		
+
+	IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        intentFilter.addAction(Intent.ACTION_HEADSET_PLUG);
+
+
+
+
+Step 3:-
+
+		within activity
+			Start the receiver by using a method registerReceiver() 
+		for this method we have to pass 2 parameters 
+		1 obj of your receiver class 
+		2 obj of IntentFilter class
+
+		EX-
+ 			registerReceiver(new MyReciver(),intentFilter);
+
+
+Step 4:-
+
+		Get The action & Pass to String With in onRecive()
+
+		Ex-
+			   String action_name=   intent.getAction();
+
+
+
+Step 5:- 	Set The String To The TextBox
+		
+
+	EX-		TextView tv=((MainActivity)context).findViewById(R.id.t1);
+        		tv.setText(action_name);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Media Player:-
+Step 1:-
+		Create A raw Directory in res paste the media file(.mp3)
+
+
+Step2:-
+
+		Make 2 Button for Start & Stop
+
+			
+		<Button
+       		 android:layout_width="match_parent"
+       		 android:layout_height="wrap_content"
+       		 android:onClick="play"
+       		 android:text="Play"/>
+
+   		 <Button
+     		   android:layout_width="match_parent"
+      		  android:layout_height="wrap_content"
+      		  android:onClick="stops"
+       		 android:text="Stop"/>
+
+Step3:-		
+		
+		Initlize MediaPlayer Obj on top;
+
+		MediaPlayer mplayer;
+
+
+Step 4:- 	
+		Set the media file name to create methode
+
+			mplayer=MediaPlayer.create(this,R.raw.Your_mediafileName);
+
+
+
+Step 5:-
+		In Play Methode call start()
+
+		 public void play(View view) {
+	
+     		 mplayer.start();
+
+   				 }
+
+
+Step 6:-	In Stop methode Call stop()
+		
+		  public void stops(View view) {
+
+        		mplayer.stop();
+    				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Service:
+
+			Service is one of the Android application component
+which is used to perform some long running background process
+Ex:
+	Music Player 
+	Long file downloading
+	Alarms
+Service will not have any UI 
+
+To start The service there is a method startService()
+if we wants to stop the service stopService()
+	
+	Steps to work with Service 
+	
+	Step1:
+		Create a class with subtype of Service and implement the
+	call backs of service  & Init
+
+	public IBinder onBind(Intent intent) {
+
+        return null;
+    }
+
+
+Step 2:-
+	Create The Directory raw & insert The Media file
+
+
+
+Step 3:-
+
+	Create The Start maehode in Service Class & pass The Media File In the create methode & 
+	assign it to mediaPlayer obj
+
+
+	
+		public void onCreate(){
+   		 super.onCreate();
+   		 mediaPlayer=MediaPlayer.create(getApplicationContext(),R.raw.sof);
+    		mediaPlayer.start();
+				}
+	
+
+Step 4:-
+
+	initlize on start methode
+
+		
+		public int onStartCommand(Intent intent, int flag, int startId){
+
+    		return super.onStartCommand(intent, flag, startId);
+
+
+		}
+
+
+Step 5:- 
+	Initlize destroy methode
+
+		public void onDestroy(){
+    		super.onDestroy();
+   		 mediaPlayer.stop();
+
+
+				}
+
+
+
+
+Step 6:-
+		Create The Button Start ,Stop & Their Methode Define 
+		in java file
+		
+		 public void start(View view) {  }
+
+
+		public void stop(View view) {  }
+
+
+
+Step 7:-	In Start & stop methode Create intent object & call the
+		 startService methode
+
+
+			
+		public void start(View view) {
+
+       			 Intent intent=new Intent(this,Myservice.class);
+        		startService(intent);
+   		 }
+
+
+
+
+   		public void Stop(View view) {
+        		Intent intent=new Intent(this,Myservice.class);
+       		       stopService(intent);
+
+   			 }	
+
+    		    
+
+Step 8:- Define the Service in Manifest.xml file as follows
+	Ex
+		<service android:name="pakgname.MyService"></service>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vibrator - Service:
+		Vibrator is one of the Built in Service which is used to vibrate the
+	device 
+
+	Steps to work with Vibrator:
+		
+Step1 : Create an object for Vibrator as follows
+	EX:
+		Vibrator vibrator=(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
+
+Step2:	
+		vibrate the device using vibrate() method inside the onClick Methode for this 
+			method we have to pass the duration in millisecons
+		Ex:
+			 public void vibrate(View view) {
+
+        			vibrator.vibrate(5000);
+   		 }
+
+Step 3:-
+		provide VIBRATE permission in Manifest.xml file
+
+			 <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+
+
+
+
+    				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Simple Web View:-
+
+		If you want to deliver a web application (or just a web page) as a part of a client application, 
+		you can do it using WebView. The WebView class is an extension of Android's View class that allows you to display
+ 		web pages as a part of your activity layout. It does not include any features of a fully developed web browser, 
+		such as navigation controls or an address bar. All that WebView does, by default, is show a web page.
+
+
+Step 1:-
+
+		Add The Web View in xml
+
+		
+		<WebView
+        	 android:layout_width="match_parent"
+       		 android:layout_height="match_parent"
+        	 android:id="@+id/wb1"/>
+
+
+Step 2:-
+	
+		Get web View into jaVA file
+
+		
+			mywebView = (WebView) findViewById(R.id.webView);
+
+
+Step 3:-
+		Creat websetting obj & get the Web setting
+		
+		
+			WebSettings webSettings= mywebView.getSettings();
+
+
+Step 4:-
+		Enable The JavaScript
+
+		   webSettings.setJavaScriptEnabled(true);
+
+
+Step 5:-	
+		load The URL
+
+		 	mywebView.loadUrl("https://www.google.com/");	
+	
+        
+		
+
+Step 6:-
+		Specify The Action for Back Button as:-
+
+			
+			 public void onBackPressed() {
+        if(mywebView.canGoBack()){
+            mywebView.goBack();
+        }
+        else {
+            super.onBackPressed();
+
+        }
+    }
+
+
+Step 7:-
+		Give the internet permission in manifiest
+
+			<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Advance Web View(Simple Browser):--
+
+
+
+
+Step 1:-
+		Create obj for edittext, webview, ProgressDailaog in java file on top
+
+		 WebView wb;
+    		EditText e1;
+   		 ProgressDialog pDialog;
+
+
+
+Step 2:-
+		Get Components in java & Enable The javascript
+		
+	  e1=findViewById(R.id.et1);
+        wb=findViewById(R.id.wb1);
+
+        WebSettings webSettings = wb.getSettings();
+        webSettings.setJavaScriptEnabled(true)
+
+
+
+Step 3:-
+		Enable Builtin ZoomControl 
+
+		wb.getSettings().setBuiltInZoomControls(true);
+
+
+
+Step 4:-	Add The Javascript interface(optional)
+			
+		wb.addJavascriptInterface(this,"and9am");
+
+
+Step 5:-	
+		Set Meassage to the progress bar
+			
+			  pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Please wait page is loading..");
+
+
+Step 6:-
+		Set webviewclients & overrides its methodes
+
+		 wb.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                pDialog.show( );
+            }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                pDialog.dismiss();
+            }
+        });
+
+
+Step 7:-
+
+		Write code for on Back Press
+	
+		  public void onBackPressed() {
+        if(wb.canGoBack()){
+            wb.goBack();
+        }
+        else {
+            super.onBackPressed();
+
+        }
+    }
+
+
+
+
+Step 8:-
+		Write Code For onClick methodes
+
+		 public void load(View view) {
+        wb.loadUrl(e1.getText().toString());
+    }
+
+
+    public void googleplus(View view) {
+
+        wb.loadUrl("http://www.plus.google.com");
+    }
+
+    public void youtube(View view) {
+        wb.loadUrl("http://www.youtube.com");
+    }
+
+    public void facebook(View view) {
+        wb.loadUrl("http://www.facbook.com");
+    }
+
+    public void google(View view) {
+        wb.loadUrl("http://www.google.com");
+    }
+}
+
+
+
+Step 9 :- 
+		Give internet permission	
+		
+		
+		
+
+		
+		
+		
+
+
+
+
+
+
+
+XML:--
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/et1"/>
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+             android:src="@drawable/search"
+                android:onClick="load"/>
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/go"
+            android:onClick="google"/>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/fb"
+            android:onClick="facebook"/>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/you"
+            android:onClick="youtube"/>
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_name"
+            android:onClick="googleplus"/>
+
+
+
+    </LinearLayout>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/wb1"/>
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+Java:--
+
+
+
+public class MainActivity extends AppCompatActivity {
+    WebView wb;
+    EditText e1;
+    ProgressDialog pDialog;
+
+    @SuppressLint("JavascriptInterface")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        e1=findViewById(R.id.et1);
+        wb=findViewById(R.id.wb1);
+
+        WebSettings webSettings = wb.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        wb.getSettings().setBuiltInZoomControls(true);
+        wb.addJavascriptInterface(this,"and9am");
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Please wait page is loading..");
+        wb.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                pDialog.show( );
+            }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                pDialog.dismiss();
+            }
+        });
+
+
+    }
+
+    public void onBackPressed() {
+        if(wb.canGoBack()){
+            wb.goBack();
+        }
+        else {
+            super.onBackPressed();
+
+        }
+    }
+
+    public void load(View view) {
+        wb.loadUrl(e1.getText().toString());
+    }
+
+
+    public void googleplus(View view) {
+
+        wb.loadUrl("http://www.plus.google.com");
+    }
+
+    public void youtube(View view) {
+        wb.loadUrl("http://www.youtube.com");
+    }
+
+    public void facebook(View view) {
+        wb.loadUrl("http://www.facbook.com");
+    }
+
+    public void google(View view) {
+        wb.loadUrl("http://www.google.com");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQLite Database
+
+
+
+
+Step 1:-	Create The Edittext for id, name, desig, dept
+			&
+		Crate The UI Button for insert , Update, Read, Delete. & List View To View Data.
+
+
+
+
+Step 2:-
+		GET tHE UI in java
+
+
+
+
+
+
+
+Step 3:-	Intilise SQLite obj on top
+		
+		SQLiteDatabase dBase;
+
+
+Step 4:-
+		Create The Database.
+
+		 dBase = openOrCreateDatabase("empdb",
+                Context.MODE_PRIVATE, null);
+
+
+
+
+Step 5:-
+		Create The Table
+
+		 dBase.execSQL("create table if not exists
+		 employee(id number,name varchar(50),desig varchar(50),dept varchar(50))");
+
+
+Step 6:-
+		Inside of insert() create the contentvalue object
+
+		 public void insert(View v){
+        ContentValues cv = new ContentValues( );
+
+
+
+Step 7:-	Insert the Data by put methode
+			
+	cv.put("id",Integer.parseInt(et1.getText().toString()));
+        cv.put("name",et2.getText().toString());
+        cv.put("desig",et3.getText().toString());
+        cv.put("dept",et4.getText().toString());
+
+
+
+
+Step 8:-
+		Insert data of cv into Database
+		long status =   dBase.insert("employee",null,cv);
+
+
+
+
+Step 9 :- Check Data is inserted or not
+
+		 if(status!=-1){
+         Toast.makeText(this,"Record Inserted",
+                                Toast.LENGTH_LONG).show();
+         et1.setText(""); et2.setText("");et3.setText("");et4.setText("");
+     }else{
+         Toast.makeText(this,"Error Occured...",
+                 Toast.LENGTH_LONG).show();
+     }
+    }
+
+
+
+
+
+Step 10:-	To Read the data do code in read()
+		Create cursor object & Pass to query()
+
+		 Cursor c =dBase.query("employee",null,
+         "name=?",
+         new String[]{et2.getText().toString()},
+         null,
+         null,"id desc");
+
+
+
+
+
+Step 11:-       Create The Arraylist
+
+			 ArrayList<String> list = new ArrayList<>( );
+
+
+
+
+Step12:-   Pass The while loop to pass cursor data into arraylist
+		 while (c.moveToNext()){
+    list.add(c.getInt(0)+"\t"+
+            c.getString(1)+"\t"+
+            c.getString(2)+"\t"+
+            c.getString(3));
+        } 
+
+
+
+Step 13:-
+		Create ArrayAdapter obj & pass to The ListView 
+			
+		 ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this,
+                 android.R.layout.simple_spinner_item,list);
+        lview.setAdapter(adapter);
+
+
+
+
+
+
+
+Step 14:-
+		To Update The Items in update()
+:-
+		Create the object Of content Values
+			     ContentValues values = new ContentValues( );
+
+
+Step 15:-	
+		Get The values from textboxes & pass to values.put()
+	
+			 values.put("name",et2.getText().toString());
+        		values.put("desig",et3.getText().toString());
+        		values.put("dept",et4.getText().toString());
+
+
+
+
+Step 16:-
+		Update the records by upate()
+		
+		 	int status = dBase.update("employee",values,
+                	"id=?",
+              		  new String[ ]{et1.getText().toString()});
+     	   		if(status>0){
+            		Toast.makeText(this,"Rows Updated",Toast.LENGTH_LONG).show();
+        		}			
+
+			else{
+           			 Toast.makeText(this,"Failed to Update",Toast.LENGTH_LONG).show();
+       				
+				 }
+		
+
+
+
+
+Step 17 :-			
+			To Delete Data in delete() pass sqlquey
+
+
+				  dBase.execSQL("delete from employee where id="+
+                			et1.getText().toString());
+
+
+
+
+
+
+
+w.setWebViewClient(new WebViewClient());
